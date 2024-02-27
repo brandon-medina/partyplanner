@@ -29,3 +29,37 @@ async function fetchAllEvents() {
     }
   }
   fetchAllEvents();
+
+  document.getElementById('add-party-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const newEvent = {
+      name: document.getElementById('name').value,
+      date: document.getElementById('date').value,
+      time: document.getElementById('time').value,
+      location: document.getElementById('location').value,
+      description: document.getElementById('description').value
+    };
+    
+    const apiUrl = 'https://fsa-crud-2aa9294fe819.herokuapp.com/api/2310-FSA-ET-WEB-PT-SF-B/events';
+    
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newEvent),
+      });
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
+      // Optionally, fetch all events again to update the list including the new event
+      fetchAllEvents();
+      
+    } catch (error) {
+      console.error('There was an error submitting the new event:', error);
+    }
+  });

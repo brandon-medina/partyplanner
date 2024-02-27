@@ -8,18 +8,20 @@
 </head>
 <body>
     <h1>Party Planner</h1>
+    <div id="event-new">
+        <h2>Add a New Event</h2>
+        <form id="add-party-form">
+            <input type="text" id="name" placeholder="Event Name" required>
+            <input type="date" id="date" required>
+            <input type="time" id="time" required>
+            <input type="text" id="location" placeholder="Location" required>
+            <textarea id="description" placeholder="Description" required></textarea>
+            <button type="submit">Add Event</button>
+        </form>
+    </div>
     <div id="event-container">
         <!-- Parties will be dynamically inserted here -->
     </div>
-    <h2>Add a New Event</h2>
-    <form id="add-party-form">
-        <input type="text" id="name" placeholder="Event Name" required>
-        <input type="date" id="date" required>
-        <input type="time" id="time" required>
-        <input type="text" id="location" placeholder="Location" required>
-        <textarea id="description" placeholder="Description" required></textarea>
-        <button type="submit">Add Event</button>
-    </form>
     <script src="index.js"></script>
 </body>
 </html>
