@@ -37,3 +37,31 @@ async function deleteParty(partyId) {
         console.error('There was an error deleting the party: ', error);
     }
 };
+
+document.getElementById('add-party-form').addEventListener('submit', async function(e) {
+    e.preventDefault(); // Prevent the default form submission
+  
+    const name = document.getElementById('name').value;
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
+    const location = document.getElementById('location').value;
+    const description = document.getElementById('description').value;
+  
+    try {
+      await fetch('https://fsa-crud-2aa9294fe819.herokuapp.com/api/2310-FSA-ET-WEB-PT-SF-B', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, date, time, location, description }),
+      });
+  
+      // Clear the form inputs after successful submission
+      document.getElementById('add-party-form').reset();
+  
+      // Refresh the list of parties to include the newly added party
+      fetchParties();
+    } catch (error) {
+      console.error('There was an error adding the party: ', error);
+    }
+  });
