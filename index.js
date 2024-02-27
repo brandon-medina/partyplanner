@@ -14,6 +14,7 @@ async function fetchAllEvents() {
         // Iterate through the events and create elements for each
         result.data.forEach(data => {
           const eventElement = document.createElement('div');
+          eventElement.classList.add('event-container');
           eventElement.innerHTML = `
             <h3>${data.name}</h3>
             <p>Date: ${data.date}</p>
