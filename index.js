@@ -24,3 +24,16 @@ async function fetchParties() {
 }
 
 fetchParties(); // Call the function to populate the parties on load
+
+async function deleteParty(partyId) {
+    try {
+        await fetch(`https://fsa-crud-2aa9294fe819.herokuapp.com/api/2310-FSA-ET-WEB-PT-SF-B/${partyId}`, {
+            method: 'DELETE',
+        });
+
+        // Refresh the list of parties after deletion
+        fetchParties();
+    } catch (error) {
+        console.error('There was an error deleting the party: ', error);
+    }
+};
