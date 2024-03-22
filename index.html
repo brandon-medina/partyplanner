@@ -11,16 +11,19 @@
     <div id="event-new">
         <h2>Add a New Event</h2>
         <form id="add-party-form">
-            <input type="text" id="name" placeholder="Event Name" required>
-            <input type="date" id="date" required>
-            <input type="time" id="time" required>
-            <input type="text" id="location" placeholder="Location" required>
-            <textarea id="description" placeholder="Description" required></textarea>
-            <button type="submit">Add Event</button>
+            <container class="new-input">
+                <input type="text" id="name" placeholder="Event Name" required>
+                <input type="date" id="date" required>
+                <input type="time" id="time" required>
+                <input type="text" id="location" placeholder="Location" required>
+                <textarea id="description" placeholder="Description" required></textarea>
+                <button type="submit">Add Event</button>
+            </container>
         </form>
     </div>
     <div id="event-container">
-        <!-- Parties will be dynamically inserted here -->
+        <ul id="eventList">
+            <!-- Parties will be dynamically inserted here -->
     </div>
     <script src="index.js"></script>
 </body>
